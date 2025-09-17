@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define f  first 
+#define s  second 
+#define int long long
+#define pb push_back
+#define mp make_pair
+#define co(x1) cout<<x1<<"\n";
+#define ct(x1) cout<<x1<<" ";
+
+void solve(){
+    int x;
+    cin>>x;
+    int y=0;
+    int flag1=0;
+    int flag2=0;
+    for(int i=0;i<31;i++){
+        int index= ( x &(1<<i)) ;
+        if(index!=0)   {
+            y=y|(1<<i );
+            flag1=1;
+            break;
+        }
+       
+    }
+    for(int i=0;i<31;i++){
+        int index= x &(1<<i);
+        if(index== 0) {
+            y=y|(1<<i );
+            flag2=1;
+            break;
+           
+        }
+       
+    }
+     if(y<x && flag1==1 && flag2==1)
+     cout<<y<<endl;
+    else
+      cout<<"-1" <<endl;
+
+}
+
+#undef int
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    long long int t=1;
+    cin>>t;
+    while(t--)
+    solve();
+    return 0;
+    
+}
